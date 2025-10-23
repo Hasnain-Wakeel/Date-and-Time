@@ -199,6 +199,35 @@
 // console.log(dayName);
 
 
-// ------------------------------------------------------------------------------------------------------------
+// ----------------------------------------- Showing 12-hour time format : -----------------------------------------
 
 
+let date = new Date();
+
+let hours = date.getHours();
+let minutes = date.getMinutes();
+let seconds = date.getSeconds();
+// let milliseconds = date.getMilliseconds();
+
+let ampm;
+
+// IF-ELSE for AM or PM :
+if (hours >= 12) {
+  ampm = "PM";
+} else {
+  ampm = "AM";
+}
+
+// Converts 24-hour to 12-hour format :
+hours = hours % 12;
+if (hours === 0) {
+  hours = 12; // midnight or noon case
+}
+
+// Add leading zeros for neat display
+minutes = minutes.toString().padStart(2, "0");
+seconds = seconds.toString().padStart(2, "0");
+// milliseconds = milliseconds.toString().padStart(3, "0");
+
+// Print formatted time
+console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${ampm}`);
