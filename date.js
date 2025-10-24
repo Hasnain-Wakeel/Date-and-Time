@@ -114,12 +114,6 @@
 // // In other words, getYear() thinks the year 1900 is “year zero.”
 
 
-// ------------------------- Showing Current Time in 24 hours Format : -------------------
-
-// let date = new Date();
-// console.log(`The Time is : ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
-
-
 // ----------- More Pre-defined Methods : ----------
 
 
@@ -138,10 +132,10 @@
 // --------------------------------------------------------------
 
 
-// ------------ Now we access the "Day" {0-6} of the Week through pre-defined Method : ------------
+// ------------ Now we access the "Day (indexes of the Days)" {0-6} of the Week through pre-defined Method : ------------
 
-// let date = new Date();
-// let day = date.getDay();
+// let today = new Date();
+// let day = today.getDay();
 // console.log(`Day : ${day}`);        
 
 // Here, this method is returning a number (index), because the Days are pre-defined for this method :
@@ -149,7 +143,29 @@
 
 // --------------------------
 
-// So, to show the Day Name, we use the following code :
+// -----------------------  Most Reliable, Efficient and Accurate Method(s) : -------------------------------
+
+// --------- This is best the approach because we are using the Pre-defined Javascript Arrangements of the days of the Week. ---------
+
+// 1(a): LongHand Method :
+
+// const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// let rightNow = Days[new Date().getDay()];
+// console.log(rightNow);    
+// // let dayIndex = rightNow.getDay();            
+// // let dayName = Days[rightNow]; 
+// // console.log(rightNow);    
+
+// 1(b): ShortHand Method :
+
+// let Days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// console.log(Days[new Date().getDay()])
+
+// ----------------------------------
+
+// ----- Here, we are not using the pre-defined Javascript arrangements of the days, although we Declared our own Array. ------
+
+// 2(a): LongHand Method :
 
 // const Days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
@@ -162,19 +178,9 @@
 // let todayDay = Days[dayIndex];
 // console.log(todayDay);
 
+// -----------------------------------
 
-// -----------------------  Most Reliable, Efficient and Accurate Method(s) : -------------------------------
-
-
-// const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-// let rightNow = Days[new Date().getDay()];
-// // let dayIndex = rightNow.getDay();            
-// // let dayName = Days[rightNow]; 
-// console.log(rightNow);    
-
-
-// ------------------------
-
+// 2(a): ShortHand Method (Alternate Method) :
 
 // const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 // // let rightNow = new Date();
@@ -183,51 +189,122 @@
 
 // ------------------------
 
+// 2(a): Most Efficient Method :
 
 // const Days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 // let todayDay = Days[(new Date().getDay() + 6) % 7];
 // console.log(todayDay);
 
-// ------------------------
+// ----------------------------------------------------
 
+// ----- Also, we are not using the pre-defined Javascript arrangements of the days here, instead we Declared our own Array. ------
+// "OR"
+// -------------- If we want to show the Day Name But according to our Declared Array : -------------
+
+// 1. (Not Very) LongHand Method (Alternate ShortHand Method) :
 
 // const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-// let dayName = Days[(new Date().getDay() + 6) % 7];
-// // let rightNow = new Date();
-// // let dayIndex = (rightNow.getDay() + 6) % 7;          // shifts [Sunday (0) to 6, Monday (1) to 0 ...]
-// //let dayName = Days[dayIndex];
+
+// let rightNow = new Date();
+// let dayIndex = (rightNow.getDay() + 6) % 7;       // This Shifts (Monday [1] to [0], ... Sunday [0] to [6])
+// let dayName = Days[dayIndex];
 // console.log(dayName);
+
+// ----------------------------------
+
+// 2. Longhand Method(s) :
+
+// const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+// if (new Date().getDay() === 0) {
+//   console.log(Days[6]);     // Sunday
+// } else {
+//   console.log(Days[new Date().getDay() - 1]);
+// }
+
+// -----------------
+
+// 2. ShortHand Method :
+
+// const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+// let dayName = Days[(new Date().getDay() + 6) % 7];
+// console.log(dayName);
+
+
+// ------------------------- Showing Current Time in 24 hours Format : -------------------
+
+// let date = new Date();
+// console.log(`The Time is : ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+
+
+// ------------------------- Showing Current Time in 12-hour time format : ----------------
+
+
+// let date = new Date();
+
+// let hours = date.getHours();
+// let minutes = date.getMinutes();
+// let seconds = date.getSeconds();
+// // let milliseconds = date.getMilliseconds();
+
+// let meridiem;
+
+// // IF-ELSE for AM or PM :
+// if (hours >= 12) {
+//   meridiem = "PM";
+// } else {
+//   meridiem = "AM";
+// }
+
+// // Converting 24-hour to 12-hour format :
+// hours = hours % 12;
+// if (hours === 0) {
+//   hours = 12;          // midnight or noon case
+// }
+
+// // Adding leading zeros for neat display :
+// minutes = minutes.toString().padStart(2, "0");
+// seconds = seconds.toString().padStart(2, "0");
+// // milliseconds = milliseconds.toString().padStart(3, "0");
+
+// // Printing formatted time :
+// console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
 
 
 // ----------------------------------------- Showing 12-hour time format : -----------------------------------------
 
 
-let date = new Date();
+// let date = new Date()
 
-let hours = date.getHours();
-let minutes = date.getMinutes();
-let seconds = date.getSeconds();
-// let milliseconds = date.getMilliseconds();
+// let hours = date.getHours()
+// let minutes = date.getMinutes()
+// let seconds = date.getSeconds()
 
-let ampm;
+// let meridiem;
 
-// IF-ELSE for AM or PM :
-if (hours >= 12) {
-  ampm = "PM";
-} else {
-  ampm = "AM";
-}
+// if(hours >= 12){
+//   meridiem = "PM"
+// }
+// else{
+//   meridiem = "AM"
+// }
 
-// Converts 24-hour to 12-hour format :
-hours = hours % 12;
-if (hours === 0) {
-  hours = 12; // midnight or noon case
-}
+// hours = hours % 12;
 
-// Add leading zeros for neat display
-minutes = minutes.toString().padStart(2, "0");
-seconds = seconds.toString().padStart(2, "0");
-// milliseconds = milliseconds.toString().padStart(3, "0");
+// if(hours === 0){
+//   hours = 12;
+// }
 
-// Print formatted time
-console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${ampm}`);
+// {.padStart() =>} {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")} => {adds leading zeros if there is not enough digits -->(2)}
+// .padStart() Method adds leading zeros to the beginning of the string.
+
+// hours = hours.toString().padStart(2, "0");         
+// minutes = minutes.toString().padStart(2,"0");
+// seconds = seconds.toString().padStart(2, "0");
+
+// console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
+
+
+// -------------------------------------------------------------------------------------------------------------
+
