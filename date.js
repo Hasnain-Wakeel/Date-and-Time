@@ -306,5 +306,108 @@
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
 
 
+// -----------------  Get Months of the Year : -------------------
+
+// let today = new Date()
+// let month = today.getMonth()
+// console.log(month)      // printing indexes same as '.getDay()' :
+
+
+// ---------------------------------- "Printing Current Month Name" : ----------------------------------
+
+// let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// let today = new Date();
+// let monthIndex = today.getMonth();
+// console.log(Months[monthIndex]);
+
+// ----------------- Showing Month Number Also : ----------------
+
+// let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// let today = new Date();
+// let monthIndex = today.getMonth();
+// console.log(`The number of Current Month is: "${monthIndex + 1}" and its type is: "${typeof (monthIndex + 1)}"`);          // +1 because monthIndex starts from 0 (index of the months) and we need the name of the month (monthIndex + 1);
+// // console.log(typeof monthIndex);
+// console.log(`The name of Current Month is: "${Months[monthIndex]}" and its type is: "${typeof Months[monthIndex]}"`);    // Months[monthIndex]);
+// // console.log(typeof Months[monthIndex]);
+
+
+// ------------------------------- Mapping Months with 1 (except December): ---------------------------
+
+
+// const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// let today = new Date();
+// let monthIndex = today.getMonth() + 1;
+
+// if (monthIndex === 12) {
+//   // If it becomes 12 (after December --> undefined)
+//   monthIndex = 11;    // stay on December
+// }
+
+// console.log(Months[monthIndex]);
+
+
+// --------------------- Mapping December Also (Maps December to January) : ----------------------
+
+// const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// let today = new Date();
+// let nextMonthIndex = today.getMonth() + 1;
+
+// if (nextMonthIndex === 12) {
+//   nextMonthIndex = 0;
+// }
+// console.log(Months[nextMonthIndex]);
+
 // -------------------------------------------------------------------------------------------------------------
+
+// function showWorldTime() {
+
+// let now = new Date();
+// let options = {hour: "2-digit",minute: "2-digit",second: "2-digit",};
+// // -----------  If you want 24-hour format chaho : -----------
+// // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+
+// let pakistan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Karachi",});
+// let usa = now.toLocaleTimeString("en-US", {...options,timeZone: "America/New_York",});
+// let japan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Tokyo",});
+// let london = now.toLocaleTimeString("en-US", {...options,timeZone: "Europe/London",});
+
+// console.clear();          // clears the console for updated display
+// console.log("World Clock");
+// console.log("----------------------------");
+// console.log("Pakistan Standard Time: ", pakistan);
+// console.log("American Standard Time: ", usa);
+// console.log("Tokyo Standard Time: ", japan);
+// console.log("London Standard Time: ", london);
+// }
+
+// // Shows Time Once :
+// showWorldTime();
+
+// // show/Updates Time Every Second :
+// setInterval(showWorldTime, 1000);
+
+// // Show/Updates Time Every Minute :
+// setInterval(showWorldTime, 60000);
+
+
+// ---------- Why we are not calling the 'showWorldTime()' function inside the 'setInterval()' function ?? ------------
+
+// Question : Why we are not using parenthesis for the 'showWorldTime' function inside the 'setInterval()' function ??
+// Answer : Because we are not calling the function inside the 'setInterval()' function. 
+// The 'setInterval()' function is already calling the function automatically after the specified interval of time.
+
+// Question : 'setInterval()' kya chahta hai ??
+// Answer : 'setInterval()' ek function ka naam (reference) chahta hai, taake wo khud us function ko baar-baar call kare.
+
+// ---------------- Syntax of Using 'setInterval()' Function : ----------------
+
+// setInterval(functionToCall, timeInMilliseconds);
+
+// First argument --> wants the function name to be called (without ()).
+// Second argument --> wants the time in milliseconds to be called (ms).
+
+// This means that the 'setInterval()' function is already calling the 'showWorldTime()' function after every 1000 milliseconds (1 second).:
+
+// --------------------------------------------------------------------------------------------------------------
 
