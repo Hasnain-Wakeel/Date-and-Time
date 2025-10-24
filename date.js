@@ -363,14 +363,24 @@
 // function showWorldTime() {
 
 // let now = new Date();
+
+// // -----------  By Default, it shows 12-hour format : -----------
 // let options = {hour: "2-digit",minute: "2-digit",second: "2-digit",};
-// // -----------  If you want 24-hour format chaho : -----------
-// // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+
+// -----------  If you want 24-hour format : -----------
+// let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+
+// //   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
+// //   2. 12-hour:         true	          10:45:23 PM       // 12-hour format
+// //   3. 12-hour:         false	            22:45:23        // 24-hour format
 
 // let pakistan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Karachi",});
 // let usa = now.toLocaleTimeString("en-US", {...options,timeZone: "America/New_York",});
 // let japan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Tokyo",});
 // let london = now.toLocaleTimeString("en-US", {...options,timeZone: "Europe/London",});
+
+// // ------------ Hindi locale : ------------
+// // let pakistan = (now.toLocaleTimeString("hi-IN", { ...options, timeZone: "Asia/Karachi" }));
 
 // console.clear();          // clears the console for updated display
 // console.log("World Clock");
@@ -400,7 +410,7 @@
 // Question : 'setInterval()' kya chahta hai ??
 // Answer : 'setInterval()' ek function ka naam (reference) chahta hai, taake wo khud us function ko baar-baar call kare.
 
-// ---------------- Syntax of Using 'setInterval()' Function : ----------------
+// ---------------- "Syntax" of Using 'setInterval()' Function : ----------------
 
 // setInterval(functionToCall, timeInMilliseconds);
 
@@ -409,5 +419,14 @@
 
 // This means that the 'setInterval()' function is already calling the 'showWorldTime()' function after every 1000 milliseconds (1 second).:
 
-// --------------------------------------------------------------------------------------------------------------
+// --------------- "Example" of Using 'setInterval()' Function : ---------------
+
+// function sayHello() {
+//   console.log("Hello Boss!");
+// }
+// // Invoking Directly (called directly) :
+// sayHello();                         // output: "Hello Boss!"
+
+// // Invoking as a Reference ('setInterval' Function will call it automatically after every 2 seconds) : 
+// setInterval(sayHello, 2000);        // output: "Hello Boss!" [every 2 seconds]
 
