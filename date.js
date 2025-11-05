@@ -7,7 +7,7 @@
 
 // 1.Date() (without new keyword) :
 
-// When you call 'Date()' like a normal function,
+// ------ When you call 'Date()' like a normal function, ------
 // it returns a 'string', not a Date 'object'.
 
 // ----------------------------  new Date() :  ----------------------------
@@ -17,7 +17,7 @@
 
 // 2. new Date() (with new keyword) :
 
-// When you use the 'new' keyword,
+// --------- When you use the 'new' keyword, ---------
 // you’re calling the 'Date constructor' to create a 'Date object'.
 
 // ----------------  Difference between 'Date()' and 'new Date()' :  ----------------
@@ -53,7 +53,7 @@
 //  AM means "Ante meridiem", which means before Mid-day.
 //  PM means "Post meridiem", which means after Mid-day.
 
-//  -------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------
 
 // --------------- If we want to only show the Day of the Week : ----------------
 
@@ -66,99 +66,89 @@
 // 2. Through new Date() : -----------
 
 // let date = new Date();
-// let day = date.slice(0, 3);
+// let day = date.slice(0, 3);          // This is an Object, NOT a String !!!
 // console.log(day);
 
 // -----------  // This will throw an error that : "date.slice" is not a function.
-// -----------  // This means that the method of slice is just for the Strings, it's not for Objects (and here date is an object).
+// -----------  // This means that the method of slice is just for the Strings, 
+// -----------          it's not for Objects (and here date is an object).
 
 // ------- "Fixing This Error" : --------
 
 // To fix this, we convert our object to String :
 
 // let date = new Date();
-// let dateInString = date.toString()           // We converted our object to string.
-// let day = dateInString.slice(0, 3);          // Now using '.slice' method (method of string).
-// console.log(day)                             // Here is a problem that it gives Number of the Day (0-6) instead of Day Name (Sun - Sat).
+// let dateInString = date.toString()          // We converted our object to string.
+// let day = dateInString.slice(0, 3);      // Now using '.slice' method (method of string).
+// console.log(day)                      // Here is a problem that it gives Number of the Day (0-6) instead of Day Name (Sun - Sat).
 
 // ---------- Extracting "Day", "Month" and "Date" from this Date Object : -----------
 
 // let date = new Date();
 // let dateInString = date.toString()           // We converted our object to string.
-// let part = dateInString.slice(0, 10);
-// console.log(part);
+// let today = dateInString.slice(0, 10);
+// console.log(today);
 
 // --------------------------------------------------------------
 
-// ---------- We can also extracts different parts (pieces) of/from the Date (object) through pre-defined Methods : ----------
+// ---- We can also extracts different parts (pieces) of/from the Date (object) through pre-defined Methods : ----
 
 // let date = new Date();
 
 // let dateNumber = date.getDate();
-// console.log(`Date : ${dateNumber}`);
+// console.log(`Date : ${dateNumber}`);        // Prints Current Date
 
 // let month = date.getMonth() + 1;
-// console.log(`Month : ${month}`);
+// console.log(`Month : ${month}`);            // Prints Current Month
 
 // let year = date.getFullYear();
-// console.log(`Year : ${year}`);
+// console.log(`Year : ${year}`);              // Prints Current Year
+
 
 // ----------------- Years from 1900 to now : ------------------
 
 // let date = new Date();
 // let year = date.getYear();
 // console.log(`Year : ${year}`);       // 125 (because 2025 - 1900 = 125)
-// // In other words, getYear() thinks the year 1900 is “year zero.”
+
+// // In other words, getYear() thinks the year 1900 is "year zero."
+
 
 // ----------- More Pre-defined Methods : ----------
 
-// // console.log(date.getMilliseconds());
-// // console.log(date.getTime());
-// // console.log(date.getUTCFullYear());
-// // console.log(date.getUTCMonth());
-// // console.log(date.getUTCDate());
-// // console.log(date.getUTCDay());
-// // console.log(date.getUTCHours());
-// // console.log(date.getUTCMinutes());
-// // console.log(date.getUTCSeconds());
-// // console.log(date.getUTCMilliseconds());
+// let date = new Date();
 
-// // ---------------------------------------------------------------------------------------------------------------
+// console.log(date.getMilliseconds());
+// console.log(date.getTime());                    // Time in Milli-Seconds from 1970. 
+// console.log(date.getUTCFullYear());             // Prints Current Year.
+// console.log(date.getUTCMonth());                // Index of Current Month.
+// console.log(date.getUTCDate());                 // Today Date.
+// console.log(date.getUTCDay());                  // Today Day Index.
+// console.log(date.getUTCHours());                // Universal Co-ordinated Time --> Greenwich (London) Current Time 
+// console.log(date.getUTCMinutes());
+// console.log(date.getUTCSeconds());
+// console.log(date.getUTCMilliseconds());
 
-// console.log((new Date().getTime() / 1000) / 60 / 60 / 24 / 365);          // Years from 1970 to now
+// // ----------------------------------------------------------------------------------------------------
 
-// // ---------------------------------------------------------------------------------------------------------------
+// console.log((new Date().getTime() / 1000) / 60 / 60 / 24 / 365);     // Years from 1970 to now
+// console.log((new Date().getTime() / 1000) / 60 / 60 / 24);           // days from 1970 to now
+// console.log((new Date().getTime() / 1000) / 60 / 60);                // hours from 1970 to now
+// console.log((new Date().getTime() / 1000) / 60);                     // minutes from 1970 to now
+// console.log((new Date().getTime() / 1000));                          // seconds from 1970 to now
+// console.log((new Date().getTime()));                                 // milliseconds from 1970 to now
 
-// console.log((new Date().getTime() / 1000) / 60 / 60 / 24);       // days from 1970 to now
+// // ----------------------------------------------------------------------------------------------------
 
-// // ---------------------------------------------------------------------------------------------------------------
-
-// console.log((new Date().getTime() / 1000) / 60 / 60);            // hours from 1970 to now
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-// console.log((new Date().getTime() / 1000) / 60);                 // minutes from 1970 to now
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-// console.log((new Date().getTime() / 1000));                      // seconds from 1970 to now
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-// console.log((new Date().getTime()));                            // milliseconds from 1970 to now
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-// ------------ Now we access the "Day (indexes of the Days)" {0-6} of the Week through pre-defined Method : ------------
+// ------ Now we access the "Day (indexes of the Days)" {0-6} of the Week through pre-defined Method : -----
 
 // let today = new Date();
 // let day = today.getDay();
-// console.log(`Day : ${day}`);
+// console.log(`Day : ${day}`);        // Prints Index of Current Day.
 
 // Here, this method is returning a number (index), because the Days are pre-defined for this method :
-// like : 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday.
+// like : Sunday = 0, Monday = 1, Tuesday = 2, Wednesday = 3, Thursday = 4, Friday = 5, Saturday = 6.
 
-// --------------------------
 
 // -----------------------  Most Reliable, Efficient and Accurate Method(s) : -------------------------------
 
@@ -168,9 +158,9 @@
 
 // const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 // let rightNow = Days[new Date().getDay()];
-// console.log(rightNow);
 // // let dayIndex = rightNow.getDay();
 // // let dayName = Days[rightNow];
+// console.log(rightNow);
 // // console.log(rightNow);
 
 // 1(b): ShortHand Method :
@@ -180,7 +170,8 @@
 
 // ----------------------------------
 
-// ----- Here, we are not using the pre-defined Javascript arrangements of the days, although we Declared our own Array. ------
+// ----- Here, we are not using the pre-defined Javascript arrangements of the days, 
+//                      although we Declared our own Array. ------
 
 // 2(a): LongHand Method :
 
@@ -188,8 +179,9 @@
 
 // let dayIndex = new Date().getDay() - 1;
 
-// if (dayIndex === -1) {      // For Sunday : if the value of the day is 0 (Sunday), it subtracts 1 from 0 [0 - 1] = [-1], which returns "Undefined". So we added this condition.
-//   dayIndex = 6;             // wrap around to Sunday
+// if (dayIndex === -1) {  // For Sunday : if the value of the day is 0 (Sunday), it subtracts 1 from 0 [0 - 1] = [-1], 
+// //                                             which returns "Undefined". So we added this condition.
+//   dayIndex = 6;         // wrap around to Sunday
 // }
 
 // let todayDay = Days[dayIndex];
@@ -200,9 +192,38 @@
 // 2(a): ShortHand Method (Alternate Method) :
 
 // const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-// // let rightNow = new Date();
 // let todayDay = Days[(new Date().getDay() + 6) % 7];
 // console.log(todayDay);
+
+// Example : 
+
+//          Index[0] + 6 => "6"  , 6 % 7 => "6" , Days[6] --> Sunday
+//          Index[1] + 6 => "7"  , 7 % 7 => "0" , Days[0] --> Monday
+//          Index[2] + 6 => "8"  , 8 % 7 => "1" , Days[1] --> Tuesday
+//          Index[3] + 6 => "9"  , 9 % 7 => "2" , Days[2] --> Wednesday
+//          Index[4] + 6 => "10" , 10 % 7 => "3" , Days[3] --> Thursday
+//          Index[5] + 6 => "11" , 11 % 7 => "4" , Days[4] --> Friday
+//          Index[6] + 6 => "12" , 12 % 7 => "5" , Days[5] --> Saturday
+
+// Explanation Of the Code Through Table :
+
+//      |    Original getDay()    |      +6       |       %7      |     Days[index]    |       Day        |
+//      |    -----------------    |  ----------   |   ----------  |   ---------------  |  -------------   |
+//      |    0 (Sunday)           |      6        |       6       |     Days[6]        |     Sunday       |
+//      |    1 (Monday)           |      7        |       0       |     Days[0]        |     Monday       |
+//      |    2 (Tuesday)          |      8        |       1       |     Days[1]        |     Tuesday      |
+//      |    3 (Wednesday)        |      9        |       2       |     Days[2]        |     Wednesday    |
+//      |    4 (Thursday)         |      10       |       3       |     Days[3]        |     Thursday     |
+//      |    5 (Friday)           |      11       |       4       |     Days[4]        |     Friday       |
+//      |    6 (Saturday)         |      12       |       5       |     Days[5]        |     Saturday     |
+
+
+
+// You can check the shifted index by yourself :
+
+// console.log("getDay():", new Date().getDay());
+// console.log("Shifted Index:", (new Date().getDay() + 6) % 7);
+// console.log("Day Name:", Days[(new Date().getDay() + 6) % 7]);
 
 // ------------------------
 
@@ -214,9 +235,10 @@
 
 // ----------------------------------------------------
 
-// ----- Also, we are not using the pre-defined Javascript arrangements of the days here, instead we Declared our own Array. ------
+// ----- Also, we are not using the pre-defined Javascript arrangements of the days here, 
+//                      instead we Declared our own Array. ------
 // "OR"
-// -------------- If we want to show the Day Name But according to our Declared Array : -------------
+// -------------- If we want to show the Day name but according to our Declared Array : -------------
 
 // 1. (Not Very) LongHand Method (Alternate ShortHand Method) :
 
@@ -235,9 +257,23 @@
 
 // if (new Date().getDay() === 0) {
 //   console.log(Days[6]);     // Sunday
-// } else {
+// } 
+// else {
 //   console.log(Days[new Date().getDay() - 1]);
 // }
+
+// 2. Longhand Method(s) :
+
+// let Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+// let dayIndex;
+
+// if(new Date().getDay() === 0){
+//     dayIndex = 6;
+// }
+// else{
+//     dayIndex = new Date().getDay() - 1 ;
+// }
+// console.log(Days[dayIndex]);
 
 // -----------------
 
@@ -246,12 +282,23 @@
 // const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 // let dayName = Days[(new Date().getDay() + 6) % 7];
+
 // console.log(dayName);
 
 // ------------------------- Showing Current Time in 24 hours Format : -------------------
 
 // let date = new Date();
-// console.log(`The Time is : ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+
+// if(date.getHours() >= 12){
+//     meridiem = "pm"
+// }
+// else{
+//     meridiem = "am"
+// }
+
+// console.log(`The Current Time is: ${(date.getHours())}:${(date.getMinutes())}:${(date.getSeconds())}`);
+
+// console.log(`The Current Time is : ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${meridiem}`);
 
 // ------------------------- Showing Current Time in 12-hour time format : ----------------
 
@@ -265,6 +312,7 @@
 // let meridiem;
 
 // // IF-ELSE for AM or PM :
+
 // if (hours >= 12) {
 //   meridiem = "PM";
 // } else {
@@ -272,20 +320,24 @@
 // }
 
 // // Converting 24-hour to 12-hour format :
+
 // hours = hours % 12;
 // if (hours === 0) {
-//   hours = 12;          // midnight or noon case
+//   hours = 12;          // Midnight or Noon Case
 // }
 
-// // Adding leading zeros for neat display :
+// // Adding Leading Zeros for Neat Display :
+
 // minutes = minutes.toString().padStart(2, "0");
 // seconds = seconds.toString().padStart(2, "0");
 // // milliseconds = milliseconds.toString().padStart(3, "0");
 
-// // Printing formatted time :
-// console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
+// // Printing Formatted Time :
 
-// ----------------------------------------- Showing 12-hour time format : -----------------------------------------
+// console.log(`Current Time of Pakistan is: ${hours}:${minutes}:${seconds} ${meridiem}`);
+
+
+// ------------------------------- Showing 12-hour time format : -------------------------------
 
 // let date = new Date()
 

@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+}
+#h1 {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  margin: 80px 420px 40px 420px;
+  padding: 10px 10px 15px 10px;
+  background-color: azure;
+  border-radius: 20px;
+}
+#h1:hover {
+  cursor: pointer;
+  background-color: bisque;
+  transform: rotate(180deg);
+}
+#p {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: azure;
+  margin: 20px 650px 20px 650px;
+  padding: 5px 10px 5px 10px;
+}
+#p:hover {
+  transform: rotate(-5deg);
+  cursor: pointer;
+  background-color: rgb(138, 250, 130);
+}
