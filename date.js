@@ -395,45 +395,45 @@
 // -------------------------------  Showing Time of Different Time Zones : --------------------------------------
 
 
-function showWorldTime() {
+// function showWorldTime() {
 
-let now = new Date();
+// let now = new Date();
 
-// // -----------  By Default, it shows 12-hour format : -----------
-let options = {hour: "2-digit", minute: "2-digit", second: "2-digit",};
+// // // -----------  By Default, it shows 12-hour format : -----------
+// let options = {hour: "2-digit", minute: "2-digit", second: "2-digit",};
 
-// // -----------  If you want 24-hour format : -----------
-// // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+// // // -----------  If you want 24-hour format : -----------
+// // // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
 
-//   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
-//   2. 12-hour:         true	        10:45:23 PM       // 12-hour format
-//   3. 12-hour:         false	          22:45:23        // 24-hour format
+// //   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
+// //   2. 12-hour:         true	        10:45:23 PM       // 12-hour format
+// //   3. 12-hour:         false	          22:45:23        // 24-hour format
 
-let pakistanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Karachi",});
-let usaTime = now.toLocaleTimeString("en-US", {...options, timeZone: "America/New_York",});
-let japanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Tokyo",});
-let londonTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Europe/London",});
+// let pakistanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Karachi",});
+// let usaTime = now.toLocaleTimeString("en-US", {...options, timeZone: "America/New_York",});
+// let japanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Tokyo",});
+// let londonTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Europe/London",});
 
-// ------------ Hindi locale : ------------
+// // ------------ Hindi locale : ------------
 
-// pakistan = (now.toLocaleTimeString("en-IN", { ...options, timeZone: "Asia/Karachi" }));
+// // pakistan = (now.toLocaleTimeString("en-IN", { ...options, timeZone: "Asia/Karachi" }));
 
-console.clear();                        // clears the console for updated display
-console.log("----------- World Clock -----------");
-// console.log("----------------------------");
-console.log("Pakistan Standard Time: ", pakistanTime);
-console.log("American Standard Time: ", usaTime);
-console.log("Tokyo Standard Time: ", japanTime);
-console.log("London Standard Time: ", londonTime);
-}
+// console.clear();                        // clears the console for updated display
+// console.log("----------- World Clock -----------");
+// // console.log("----------------------------");
+// console.log("Pakistan Standard Time: ", pakistanTime);
+// console.log("American Standard Time: ", usaTime);
+// console.log("Tokyo Standard Time: ", japanTime);
+// console.log("London Standard Time: ", londonTime);
+// }
 
-// Shows Time Once :
-// showWorldTime();
+// // Shows Time Once :
+// // showWorldTime();
 
-// show/Updates Time Every Second :
+// // ----------- show/Updates Time Every Second : ------------
 // setInterval(showWorldTime, 1000);
 
-// // Show/Updates Time Every Minute :
+// ---------- Show/Updates Time Every Minute : ----------
 // setInterval(showWorldTime, 60000);
 
 // -----------------------------------------------------------------------
@@ -469,4 +469,21 @@ console.log("London Standard Time: ", londonTime);
 // setInterval(sayHello, 2000);        // output: "Hello Boss!" [every 2 seconds]
 
 // -------------------------------------------------------------------------------------------------------
+
+
+// --------------  Printing Custom or Specified Date : ---------------
+
+// Formats For Giving A Custom Date : 
+
+// let customDate = new Date("21 Apr 2025");
+// let customDate = new Date("21 April 2025");
+// let customDate = new Date("21 april 2025");
+// let customDate = new Date("4 21 2025");
+// let customDate = new Date("04 21 2025");
+// let customDate = new Date("January 21 2025");
+// let customDate = new Date("Jan 21 2025");
+// let customDate = new Date("Jan 21 2025");
+// let customDate = new Date("21 jan 2025");
+
+// console.log(customDate);
 
