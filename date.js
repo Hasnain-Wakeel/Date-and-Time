@@ -360,30 +360,37 @@
 //   hours = 12;
 // }
 
-// // // .padStart() Method :
+// // // -----------------  .padStart() Method : -----------------
 
 // // // .padStart() Method adds leading zeros to the beginning of the string.
-
 // // // {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")}
 
 // hours = hours.toString().padStart(2, "0");
 // minutes = minutes.toString().padStart(2,"0");
 // seconds = seconds.toString().padStart(2, "0");
 
+// // -------------- Not Using .toString() Method : --------------
+
+// // hours = `${hours}`.padStart(2, "0");
+// // minutes = `${minutes}`.padStart(2, "0");
+// // seconds = `${seconds}`.padStart(2, "0");
+
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
+
 
 // -----------------  Get Months of the Year : -------------------
 
 // let today = new Date()
 // let month = today.getMonth()
-// console.log(month)               // printing indexes same as '.getDay()' :
+// console.log(month)               // Prints Indexes, same as: '.getDay()' :
+
 
 // ---------------------------------- "Printing Current Month Name" : ----------------------------------
 
 // let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
 // let monthIndex = today.getMonth();
-// console.log(Months[monthIndex]);
+// console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);         // Adding + 1 bcz monthIndex starts from 0. 
 
 // ----------------- Showing Month Number Also : ----------------
 
@@ -402,12 +409,12 @@
 // let today = new Date();
 // let monthIndex = today.getMonth();          // 1-based index
 
-// if (monthIndex >= 11) {
+// if (monthIndex >= 12) {
 //   // Agar December se aage chala jaaye toh :
 //   monthIndex = 11;          // December he dikha do
 // }
 
-// console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);
+// console.log(`${monthIndex} --> ${Months[monthIndex]}`);
 
 // --------------------- Mapping December Also (Maps December to January) : ----------------------
 
@@ -420,14 +427,50 @@
 //   monthIndex = 0;
 // }
 // else{
-//   monthIndex = today.getMonth()
+//   monthIndex = today.getMonth(); 
 // }
+
 // console.log(`Index of ${Months[monthIndex]} is ${monthIndex}`);
-// console.log(`    ${monthIndex} --> ${Months[monthIndex]}`);
+// console.log(`${monthIndex} --> ${Months[monthIndex]}`);
+
+// ------------------------------
+
+// let userInput = Number(prompt("Enter a Number :"));
+
+// const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// let today = new Date();
+
+// let monthIndex = today.getMonth();
+
+// if(monthIndex >= 13){
+//   monthIndex = 12;
+// }
+// else{
+//   monthIndex = today.getMonth();
+// }
+
+// console.log(`Number of ${Months[monthIndex]} is ${monthIndex + 1}.`);
+// console.log(`    ${monthIndex + 1} --> ${Months[monthIndex]}`);
+
+
+// ------------------ Simple Way ---------------
+
+// let userInput = Number(prompt("Us Month ka number likho jis ko aap dekhna chahtay ho :"));
+
+// const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// if (userInput >= 1 && userInput <= 12) {
+//   console.log(Months[userInput - 1]);
+// } 
+// else {
+//   console.log("Invalid Input!, Please Try Again.");
+// }
 
 // -------------------------------------------------------------------------------------------------------------
 
 // -------------------------------  Showing Time of Different Time Zones : --------------------------------------
+
 
 // function showWorldTime() {
 
@@ -440,8 +483,8 @@
 // // // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
 
 // //   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
-// //   2. 12-hour:         true	        10:45:23 PM       // 12-hour format
-// //   3. 12-hour:         false	          22:45:23        // 24-hour format
+// //   2. 12-hour:         true	          10:45:23 PM       // 12-hour format
+// //   3. 12-hour:         false	            22:45:23        // 24-hour format
 
 // let pakistanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Karachi",});
 // let usaTime = now.toLocaleTimeString("en-US", {...options, timeZone: "America/New_York",});
