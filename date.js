@@ -72,7 +72,6 @@
 // -----------  // This will throw an error that : "date.slice" is not a function.
 // -----------  // This means that the method of slice is just for the Strings, it's not for Objects (and here date is an object).
 
-
 // ------- "Fixing This Error" : --------
 
 // To fix this, we convert our object to String :
@@ -81,7 +80,6 @@
 // let dateInString = date.toString()           // We converted our object to string.
 // let day = dateInString.slice(0, 3);          // Now using '.slice' method (method of string).
 // console.log(day)                             // Here is a problem that it gives Number of the Day (0-6) instead of Day Name (Sun - Sat).
-
 
 // ---------- Extracting "Day", "Month" and "Date" from this Date Object : -----------
 
@@ -103,8 +101,7 @@
 // console.log(`Month : ${month}`);
 
 // let year = date.getFullYear();
-// console.log(`Year : ${year}`);   
-
+// console.log(`Year : ${year}`);
 
 // ----------------- Years from 1900 to now : ------------------
 
@@ -113,9 +110,7 @@
 // console.log(`Year : ${year}`);       // 125 (because 2025 - 1900 = 125)
 // // In other words, getYear() thinks the year 1900 is “year zero.”
 
-
 // ----------- More Pre-defined Methods : ----------
-
 
 // // console.log(date.getMilliseconds());
 // // console.log(date.getTime());
@@ -128,7 +123,6 @@
 // // console.log(date.getUTCSeconds());
 // // console.log(date.getUTCMilliseconds());
 
-
 // // ---------------------------------------------------------------------------------------------------------------
 
 // console.log((new Date().getTime() / 1000) / 60 / 60 / 24 / 365);          // Years from 1970 to now
@@ -138,7 +132,7 @@
 // console.log((new Date().getTime() / 1000) / 60 / 60 / 24);       // days from 1970 to now
 
 // // ---------------------------------------------------------------------------------------------------------------
- 
+
 // console.log((new Date().getTime() / 1000) / 60 / 60);            // hours from 1970 to now
 
 // // ---------------------------------------------------------------------------------------------------------------
@@ -155,12 +149,11 @@
 
 // // ---------------------------------------------------------------------------------------------------------------
 
-
 // ------------ Now we access the "Day (indexes of the Days)" {0-6} of the Week through pre-defined Method : ------------
 
 // let today = new Date();
 // let day = today.getDay();
-// console.log(`Day : ${day}`);        
+// console.log(`Day : ${day}`);
 
 // Here, this method is returning a number (index), because the Days are pre-defined for this method :
 // like : 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday.
@@ -175,10 +168,10 @@
 
 // const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 // let rightNow = Days[new Date().getDay()];
-// console.log(rightNow);    
-// // let dayIndex = rightNow.getDay();            
-// // let dayName = Days[rightNow]; 
-// // console.log(rightNow);    
+// console.log(rightNow);
+// // let dayIndex = rightNow.getDay();
+// // let dayName = Days[rightNow];
+// // console.log(rightNow);
 
 // 1(b): ShortHand Method :
 
@@ -195,7 +188,7 @@
 
 // let dayIndex = new Date().getDay() - 1;
 
-// if (dayIndex === -1) {      // For Sunday : if the value of the day is 0 (Sunday), it subtracts 1 from 0 [0 - 1] = [-1], which returns "Undefined". So we added this condition. 
+// if (dayIndex === -1) {      // For Sunday : if the value of the day is 0 (Sunday), it subtracts 1 from 0 [0 - 1] = [-1], which returns "Undefined". So we added this condition.
 //   dayIndex = 6;             // wrap around to Sunday
 // }
 
@@ -255,15 +248,12 @@
 // let dayName = Days[(new Date().getDay() + 6) % 7];
 // console.log(dayName);
 
-
 // ------------------------- Showing Current Time in 24 hours Format : -------------------
 
 // let date = new Date();
 // console.log(`The Time is : ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
 
-
 // ------------------------- Showing Current Time in 12-hour time format : ----------------
-
 
 // let date = new Date();
 
@@ -295,9 +285,7 @@
 // // Printing formatted time :
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
 
-
 // ----------------------------------------- Showing 12-hour time format : -----------------------------------------
-
 
 // let date = new Date()
 
@@ -320,25 +308,23 @@
 //   hours = 12;
 // }
 
-// // // .padStart() Method : 
+// // // .padStart() Method :
 
 // // // .padStart() Method adds leading zeros to the beginning of the string.
 
-// // // {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")} 
+// // // {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")}
 
-// hours = hours.toString().padStart(2, "0");         
+// hours = hours.toString().padStart(2, "0");
 // minutes = minutes.toString().padStart(2,"0");
 // seconds = seconds.toString().padStart(2, "0");
 
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
-
 
 // -----------------  Get Months of the Year : -------------------
 
 // let today = new Date()
 // let month = today.getMonth()
 // console.log(month)               // printing indexes same as '.getDay()' :
-
 
 // ---------------------------------- "Printing Current Month Name" : ----------------------------------
 
@@ -352,12 +338,11 @@
 // let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
 // let monthIndex = today.getMonth();
-// console.log(`The number of Current Month is: '${monthIndex + 1}' and its type is: '${typeof (monthIndex + 1)}'`);     
+// console.log(`The number of Current Month is: '${monthIndex + 1}' and its type is: '${typeof (monthIndex + 1)}'`);
 // // +1 because monthIndex starts from 0 (index of the months) and we need the name of the month (monthIndex + 1);
 // // console.log(typeof monthIndex);
 // console.log(`The name of Current Month is: '${Months[monthIndex]}' and its type is: '${typeof Months[monthIndex]}'`);    // Months[monthIndex]);
 // // console.log(typeof Months[monthIndex]);
-
 
 // ------------------------------- Mapping Months with 1 (except December): ---------------------------
 
@@ -367,14 +352,12 @@
 
 // if (monthIndex >= 11) {
 //   // Agar December se aage chala jaaye toh :
-//   monthIndex = 11;          // December he dikha do 
+//   monthIndex = 11;          // December he dikha do
 // }
 
 // console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);
 
-
 // --------------------- Mapping December Also (Maps December to January) : ----------------------
-
 
 // const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -393,7 +376,6 @@
 // -------------------------------------------------------------------------------------------------------------
 
 // -------------------------------  Showing Time of Different Time Zones : --------------------------------------
-
 
 // function showWorldTime() {
 
@@ -438,11 +420,10 @@
 
 // -----------------------------------------------------------------------
 
-
 // ---------- Why we are not calling the 'showWorldTime()' function inside the 'setInterval()' function ?? ------------
 
 // Question : Why we are not using parenthesis for the 'showWorldTime' function inside the 'setInterval()' function ??
-// Answer : Because we are not calling the function inside the 'setInterval()' function. 
+// Answer : Because we are not calling the function inside the 'setInterval()' function.
 // The 'setInterval()' function is already calling the function automatically after the specified interval of time.
 
 // Question : 'setInterval()' kya chahta hai ??
@@ -465,15 +446,14 @@
 // // Invoking Directly (called directly) :
 // sayHello();                         // output: "Hello Boss!"
 
-// // Invoking as a Reference ('setInterval' Function will call it automatically after every 2 seconds) : 
+// // Invoking as a Reference ('setInterval' Function will call it automatically after every 2 seconds) :
 // setInterval(sayHello, 2000);        // output: "Hello Boss!" [every 2 seconds]
 
 // -------------------------------------------------------------------------------------------------------
 
-
 // --------------  Printing Custom or Specified Date : ---------------
 
-// Formats For Giving A Custom Date : 
+// Formats For Giving A Custom Date :
 
 // let customDate = new Date("21 Apr 2025");
 // let customDate = new Date("21 April 2025");
@@ -486,4 +466,40 @@
 // let customDate = new Date("21 jan 2025");
 
 // console.log(customDate);
+
+// ------------------------
+
+// let customDate = new Date("11 Mar 2025");
+
+// let currentDate = new Date();
+// // let currentDate = new Date("12 Mar 2025");
+
+// console.log(currentDate - customDate);
+
+
+// --------------------------  Calculating Remaining Time In A Future Date : ------------------------
+
+
+// let today = new Date();
+// let customDate = new Date("12 Jan 2030");
+
+// milliSecondsOfToday = today.getTime();
+// milliSecondsOfCustomDate = customDate.getTime();
+
+// let milliSecondsDifference = milliSecondsOfCustomDate - milliSecondsOfToday;
+
+// let daysLeft = (milliSecondsDifference / (1000 * 60 * 60 * 24))
+// let hoursLeft = (milliSecondsDifference / (1000 * 60 * 60))     
+// let minutesLeft = (milliSecondsDifference / (1000 * 60))     
+// let secondsLeft = (milliSecondsDifference / (1000))     
+// let milliSecondsLeft = (milliSecondsDifference)     
+
+// console.log(daysLeft);                   // Days Left in Custom Date --> [12 Jan 2030]
+// console.log(hoursLeft);                  // Hours Left in Custom Date --> [12 Jan 2030]
+// console.log(minutesLeft);                // minutes Left in Custom Date --> [12 Jan 2030]
+// console.log(secondsLeft);                // minutes Left in Custom Date --> [12 Jan 2030]
+// console.log(milliSecondsLeft);           // minutes Left in Custom Date --> [12 Jan 2030]
+
+
+// -----------------------------------------------------------------------------------------
 
