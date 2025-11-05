@@ -129,7 +129,31 @@
 // // console.log(date.getUTCMilliseconds());
 
 
-// --------------------------------------------------------------
+// // ---------------------------------------------------------------------------------------------------------------
+
+// console.log((new Date().getTime() / 1000) / 60 / 60 / 24 / 365);          // Years from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
+
+// console.log((new Date().getTime() / 1000) / 60 / 60 / 24);       // days from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
+ 
+// console.log((new Date().getTime() / 1000) / 60 / 60);            // hours from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
+
+// console.log((new Date().getTime() / 1000) / 60);                 // minutes from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
+
+// console.log((new Date().getTime() / 1000));                      // seconds from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
+
+// console.log((new Date().getTime()));                            // milliseconds from 1970 to now
+
+// // ---------------------------------------------------------------------------------------------------------------
 
 
 // ------------ Now we access the "Day (indexes of the Days)" {0-6} of the Week through pre-defined Method : ------------
@@ -296,8 +320,11 @@
 //   hours = 12;
 // }
 
-// {.padStart() =>} {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")} => {adds leading zeros if there is not enough digits -->(2)}
-// .padStart() Method adds leading zeros to the beginning of the string.
+// // // .padStart() Method : 
+
+// // // .padStart() Method adds leading zeros to the beginning of the string.
+
+// // // {.padStart(targetLength, stringToPad)} => {.padStart(2, "0")} 
 
 // hours = hours.toString().padStart(2, "0");         
 // minutes = minutes.toString().padStart(2,"0");
@@ -310,7 +337,7 @@
 
 // let today = new Date()
 // let month = today.getMonth()
-// console.log(month)      // printing indexes same as '.getDay()' :
+// console.log(month)               // printing indexes same as '.getDay()' :
 
 
 // ---------------------------------- "Printing Current Month Name" : ----------------------------------
@@ -325,80 +352,91 @@
 // let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
 // let monthIndex = today.getMonth();
-// console.log(`The number of Current Month is: "${monthIndex + 1}" and its type is: "${typeof (monthIndex + 1)}"`);          // +1 because monthIndex starts from 0 (index of the months) and we need the name of the month (monthIndex + 1);
+// console.log(`The number of Current Month is: '${monthIndex + 1}' and its type is: '${typeof (monthIndex + 1)}'`);     
+// // +1 because monthIndex starts from 0 (index of the months) and we need the name of the month (monthIndex + 1);
 // // console.log(typeof monthIndex);
-// console.log(`The name of Current Month is: "${Months[monthIndex]}" and its type is: "${typeof Months[monthIndex]}"`);    // Months[monthIndex]);
+// console.log(`The name of Current Month is: '${Months[monthIndex]}' and its type is: '${typeof Months[monthIndex]}'`);    // Months[monthIndex]);
 // // console.log(typeof Months[monthIndex]);
 
 
 // ------------------------------- Mapping Months with 1 (except December): ---------------------------
 
-
 // const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
-// let monthIndex = today.getMonth() + 1;
+// let monthIndex = today.getMonth();          // 1-based index
 
-// if (monthIndex === 12) {
-//   // If it becomes 12 (after December --> undefined)
-//   monthIndex = 11;    // stay on December
+// if (monthIndex >= 11) {
+//   // Agar December se aage chala jaaye toh :
+//   monthIndex = 11;          // December he dikha do 
 // }
 
-// console.log(Months[monthIndex]);
+// console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);
 
 
 // --------------------- Mapping December Also (Maps December to January) : ----------------------
 
+
 // const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 // let today = new Date();
-// let nextMonthIndex = today.getMonth() + 1;
+// let monthIndex = today.getMonth() + 1;
 
-// if (nextMonthIndex === 12) {
-//   nextMonthIndex = 0;
+// if (monthIndex === 12) {
+//   monthIndex = 0;
 // }
-// console.log(Months[nextMonthIndex]);
+// else{
+//   monthIndex = today.getMonth()
+// }
+// console.log(`Index of ${Months[monthIndex]} is ${monthIndex}`);
+// console.log(`    ${monthIndex} --> ${Months[monthIndex]}`);
 
 // -------------------------------------------------------------------------------------------------------------
 
-// function showWorldTime() {
+// -------------------------------  Showing Time of Different Time Zones : --------------------------------------
 
-// let now = new Date();
+
+function showWorldTime() {
+
+let now = new Date();
 
 // // -----------  By Default, it shows 12-hour format : -----------
-// let options = {hour: "2-digit",minute: "2-digit",second: "2-digit",};
+let options = {hour: "2-digit", minute: "2-digit", second: "2-digit",};
 
-// -----------  If you want 24-hour format : -----------
-// let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+// // -----------  If you want 24-hour format : -----------
+// // let options = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
 
-// //   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
-// //   2. 12-hour:         true	          10:45:23 PM       // 12-hour format
-// //   3. 12-hour:         false	            22:45:23        // 24-hour format
+//   1. Default:        (en-US)	        10:45:23 AM       // 12-hour format (by default)
+//   2. 12-hour:         true	        10:45:23 PM       // 12-hour format
+//   3. 12-hour:         false	          22:45:23        // 24-hour format
 
-// let pakistan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Karachi",});
-// let usa = now.toLocaleTimeString("en-US", {...options,timeZone: "America/New_York",});
-// let japan = now.toLocaleTimeString("en-US", {...options,timeZone: "Asia/Tokyo",});
-// let london = now.toLocaleTimeString("en-US", {...options,timeZone: "Europe/London",});
+let pakistanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Karachi",});
+let usaTime = now.toLocaleTimeString("en-US", {...options, timeZone: "America/New_York",});
+let japanTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Asia/Tokyo",});
+let londonTime = now.toLocaleTimeString("en-US", {...options, timeZone: "Europe/London",});
 
-// // ------------ Hindi locale : ------------
-// // let pakistan = (now.toLocaleTimeString("hi-IN", { ...options, timeZone: "Asia/Karachi" }));
+// ------------ Hindi locale : ------------
 
-// console.clear();          // clears the console for updated display
-// console.log("World Clock");
+// pakistan = (now.toLocaleTimeString("en-IN", { ...options, timeZone: "Asia/Karachi" }));
+
+console.clear();                        // clears the console for updated display
+console.log("----------- World Clock -----------");
 // console.log("----------------------------");
-// console.log("Pakistan Standard Time: ", pakistan);
-// console.log("American Standard Time: ", usa);
-// console.log("Tokyo Standard Time: ", japan);
-// console.log("London Standard Time: ", london);
-// }
+console.log("Pakistan Standard Time: ", pakistanTime);
+console.log("American Standard Time: ", usaTime);
+console.log("Tokyo Standard Time: ", japanTime);
+console.log("London Standard Time: ", londonTime);
+}
 
-// // Shows Time Once :
+// Shows Time Once :
 // showWorldTime();
 
-// // show/Updates Time Every Second :
+// show/Updates Time Every Second :
 // setInterval(showWorldTime, 1000);
 
 // // Show/Updates Time Every Minute :
 // setInterval(showWorldTime, 60000);
+
+// -----------------------------------------------------------------------
 
 
 // ---------- Why we are not calling the 'showWorldTime()' function inside the 'setInterval()' function ?? ------------
@@ -429,4 +467,6 @@
 
 // // Invoking as a Reference ('setInterval' Function will call it automatically after every 2 seconds) : 
 // setInterval(sayHello, 2000);        // output: "Hello Boss!" [every 2 seconds]
+
+// -------------------------------------------------------------------------------------------------------
 
