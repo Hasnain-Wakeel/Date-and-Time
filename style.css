@@ -9,11 +9,12 @@ body {
   padding: 10px 10px 15px 10px;
   background-color: azure;
   border-radius: 20px;
+  transform: rotate(180deg);
 }
 #h1:hover {
   cursor: pointer;
   background-color: rgb(255, 184, 97);
-  transform: rotate(180deg);
+  transform: rotate(-10deg);
 }
 #h1:active{
   cursor: pointer;
