@@ -596,40 +596,45 @@
 // console.log(milliSecondsLeft);           // minutes Left in Custom Date --> [12 Jan 2030]
 
 
-
 // --------------------------  Calculating Time Left In A Future Date : ------------------------
 
-let today = new Date();
-let todayTime = today.getTime();
-// console.log(todayTime);                 // Current Time in MilliSeconds.
+// let today = new Date();
+// let todayTime = today.getTime();
+// // console.log(todayTime);                 // Current Time in MilliSeconds.
 
+// -------- We also can specify a specific time of a future date : -------- 
 
-let customDate = new Date("12 Jan 2030");
-let customDayTime = customDate.getTime();
-// console.log(customDayTime);             // Custom Day Time in MilliSeconds.
+// // let date = new Date("11 Jan 2021 15:30:25").getTime();
+// // console.log(date);
 
-let differenceInMilliseconds = customDayTime - todayTime
-// console.log(differenceInMilliseconds);
+// ------------------------------------------------------------------------
 
-let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 30));
-// let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24) / 30);
-console.log(`Total Months Left: ${monthsLeft}`);
+// let customDate = new Date("12 Jan 2030");
+// let customDayTime = customDate.getTime();
+// // console.log(customDayTime);             // Custom Day Time in MilliSeconds.
 
-let weeksLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 7));
-// let weeksLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24) / 7);
-console.log(`Total Weeks Left: ${weeksLeft}`);
+// let differenceInMilliseconds = customDayTime - todayTime
+// // console.log(differenceInMilliseconds);
 
-let daysLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60 * 24)));
-console.log(`Total Days Left: ${daysLeft}`);        
+// let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 30));
+// // let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24) / 30);
+// console.log(`Total Months Left: ${monthsLeft}`);
 
-let hoursLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60)));
-console.log(`Total Hours Left: ${hoursLeft}`);
+// let weeksLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 7));
+// // let weeksLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24) / 7);
+// console.log(`Total Weeks Left: ${weeksLeft}`);
 
-let minutesLeft = Math.floor((differenceInMilliseconds / (1000 * 60)));
-console.log(`Total Minutes Left: ${minutesLeft}`);
+// let daysLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60 * 24)));
+// console.log(`Total Days Left: ${daysLeft}`);        
 
-let secondsLeft = Math.floor((differenceInMilliseconds / (1000)));
-console.log(`Total Seconds Left: ${secondsLeft}`);
+// let hoursLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60)));
+// console.log(`Total Hours Left: ${hoursLeft}`);
+
+// let minutesLeft = Math.floor((differenceInMilliseconds / (1000 * 60)));
+// console.log(`Total Minutes Left: ${minutesLeft}`);
+
+// let secondsLeft = Math.floor((differenceInMilliseconds / (1000)));
+// console.log(`Total Seconds Left: ${secondsLeft}`);
 
 // ----------------------------------------------------------------------------------------------
 
