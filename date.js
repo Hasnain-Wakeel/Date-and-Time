@@ -1,29 +1,42 @@
 // ----------------------------  How to Generate Date and Time :  ----------------------------
 
+
 // ----------------------------  Date() :  ----------------------------
+
+
+// -------------  Date() is an Object :  ------------
+
 
 // let date = Date();
 // console.log(date);
 
-// 1.Date() (without new keyword) :
+// 1. Date() (without new keyword) :
 
 // ------ When you call 'Date()' like a normal function, ------
+
 // it returns a 'string', not a Date 'object'.
+
 
 // ----------------------------  new Date() :  ----------------------------
 
 // let date = new Date();
 // console.log(date);
 
-// 2. new Date() (with new keyword) :
+// 2. "new Date()" (with new keyword) :
 
 // --------- When you use the 'new' keyword, ---------
 // you’re calling the 'Date constructor' to create a 'Date object'.
 
-// ----------------  Difference between 'Date()' and 'new Date()' :  ----------------
+// ---------  The new keyword tells JavaScript that make this (Date String) a 'Date object'. ---------
 
-// Date() just tells you the time as text,
-// while new Date() gives you the time as a tool you can work with.
+
+// ----------------------------------------------------------------------------------
+// ----------------  Difference between 'Date()' and 'new Date()' :  ----------------
+// ----------------------------------------------------------------------------------
+
+
+// 'Date()' just tells you the time as text,
+// while 'new Date()' gives you the time as a tool you can work with.
 
 // ----------------------
 
@@ -36,8 +49,9 @@
 
 // Checking Types of Date() and new Date() :
 
-// console.log(typeof Date());         // "string"
-// console.log(typeof new Date());     // "object"
+// console.log(typeof Date());              // "string"
+// console.log(typeof new Date());          // "object"
+
 
 // --------------------------------------------------------------------------------------------
 
@@ -66,8 +80,9 @@
 // 2. Through new Date() : -----------
 
 // let date = new Date();
-// let day = date.slice(0, 3);          // This is an Object, NOT a String !!!
-// console.log(day);
+// let day = date.slice(0, 3);          // Throws an ERROR : "TypeError: date.slice is not a function". 
+// //                                               This is an Object, NOT a String !!!
+// console.log(day);                    // Bcz 'slice() method' is only for Strings, not for Objects.
 
 // -----------  // This will throw an error that : "date.slice" is not a function.
 // -----------  // This means that the method of slice is just for the Strings, 
@@ -78,9 +93,10 @@
 // To fix this, we convert our object to String :
 
 // let date = new Date();
-// let dateInString = date.toString()          // We converted our object to string.
-// let day = dateInString.slice(0, 3);      // Now using '.slice' method (method of string).
-// console.log(day)                      // Here is a problem that it gives Number of the Day (0-6) instead of Day Name (Sun - Sat).
+// let dateInString = date.toString()            // We converted our object to string.
+// let todayDay = dateInString.slice(0, 3);      // Now using '.slice' method (method of string).
+// console.log(todayDay);                        // Prints Current Day.
+
 
 // ---------- Extracting "Day", "Month" and "Date" from this Date Object : -----------
 
@@ -107,6 +123,7 @@
 
 // ----------------- Years from 1900 to now : ------------------
 
+
 // let date = new Date();
 // let year = date.getYear();
 // console.log(`Year : ${year}`);       // 125 (because 2025 - 1900 = 125)
@@ -118,16 +135,15 @@
 
 // let date = new Date();
 
-// console.log(date.getMilliseconds());
-// console.log(date.getTime());                    // Time in Milli-Seconds from 1970. 
+// console.log("Milliseconds from 1970 --> ", date.getTime());                  // Time in Milli-Seconds from 1970. 
 // console.log(date.getUTCFullYear());             // Prints Current Year.
 // console.log(date.getUTCMonth());                // Index of Current Month.
 // console.log(date.getUTCDate());                 // Today Date.
 // console.log(date.getUTCDay());                  // Today Day Index.
 // console.log(date.getUTCHours());                // Universal Co-ordinated Time --> Greenwich (London) Current Time 
-// console.log(date.getUTCMinutes());
-// console.log(date.getUTCSeconds());
-// console.log(date.getUTCMilliseconds());
+// console.log(date.getUTCMinutes());              // Time in Minutes.
+// console.log(date.getUTCSeconds());              // Time in Seconds.
+// console.log("UTC (Current Time) Milliseconds --> " , date.getMilliseconds());                   // Time in Milli-Seconds.
 
 // // ----------------------------------------------------------------------------------------------------
 
@@ -157,35 +173,41 @@
 // 1(a): LongHand Method :
 
 // const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-// let rightNow = Days[new Date().getDay()];
-// // let dayIndex = rightNow.getDay();
-// // let dayName = Days[rightNow];
-// console.log(rightNow);
-// // console.log(rightNow);
+// let todayDay = Days[new Date().getDay()];
+// // let dayIndex = todayDay.getDay();
+// // let dayName = Days[todayDay];
+// console.log(todayDay);
+// // console.log(todayDay);
+
+// ----------------------------------
 
 // 1(b): ShortHand Method :
 
 // let Days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-// console.log(Days[new Date().getDay()])
+// console.log(Days[new Date().getDay()]);
 
-// ----------------------------------
 
-// ----- Here, we are not using the pre-defined Javascript arrangements of the days, 
+// ------------------------------------------------------------------
+
+
+// ----- Here, we are NOT using the pre-defined Javascript arrangements of the days, 
 //                      although we Declared our own Array. ------
 
-// 2(a): LongHand Method :
+
+// ---------  2(a): LongHand Method :  ------------
 
 // const Days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
 // let dayIndex = new Date().getDay() - 1;
 
-// if (dayIndex === -1) {  // For Sunday : if the value of the day is 0 (Sunday), it subtracts 1 from 0 [0 - 1] = [-1], 
+// if (dayIndex === -1) {  // For Sunday : if the value of the day is 0 (Sunday), it subtracts '1' from '0' [0 - 1] = [-1], 
 // //                                             which returns "Undefined". So we added this condition.
 //   dayIndex = 6;         // wrap around to Sunday
 // }
 
 // let todayDay = Days[dayIndex];
 // console.log(todayDay);
+
 
 // -----------------------------------
 
@@ -575,19 +597,26 @@
 // --------------------------  Calculating Remaining Time In A Future Date : ------------------------
 
 
-// let today = new Date();
-// let customDate = new Date("12 Jan 2030");
+// let Days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-// milliSecondsOfToday = today.getTime();
-// milliSecondsOfCustomDate = customDate.getTime();
+// let today = new Date();
+// let customDate = new Date("2030-01-11");
+let customDate = new Date("Jan 11 2030");
+// let customDateDay = Days[customDate.getDay()];
+console.log(customDate.getTime());
+
+// let milliSecondsOfToday = today.getTime();
+// let milliSecondsOfCustomDate = customDate.getTime();
+// console.log(milliSecondsOfToday);
+// console.log(milliSecondsOfCustomDate);
 
 // let milliSecondsDifference = milliSecondsOfCustomDate - milliSecondsOfToday;
 
-// let daysLeft = (milliSecondsDifference / (1000 * 60 * 60 * 24))
-// let hoursLeft = (milliSecondsDifference / (1000 * 60 * 60))     
-// let minutesLeft = (milliSecondsDifference / (1000 * 60))     
-// let secondsLeft = (milliSecondsDifference / (1000))     
-// let milliSecondsLeft = (milliSecondsDifference)     
+// let daysLeft = (milliSecondsDifference / (1000 * 60 * 60 * 24));
+// let hoursLeft = (milliSecondsDifference / (1000 * 60 * 60));     
+// let minutesLeft = (milliSecondsDifference / (1000 * 60));     
+// let secondsLeft = (milliSecondsDifference / (1000));     
+// let milliSecondsLeft = (milliSecondsDifference);     
 
 // console.log(daysLeft);                   // Days Left in Custom Date --> [12 Jan 2030]
 // console.log(hoursLeft);                  // Hours Left in Custom Date --> [12 Jan 2030]
@@ -637,4 +666,9 @@
 // console.log(`Total Seconds Left: ${secondsLeft}`);
 
 // ----------------------------------------------------------------------------------------------
+
+// let customDate = new Date("Jan 12 2030");
+// let time = customDate.getTime()
+// console.log(time);
+
 
