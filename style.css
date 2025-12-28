@@ -13,14 +13,14 @@ body {
 }
 #h1:hover {
   cursor: pointer;
-  background-color: rgb(255, 184, 97);
-  transform: rotate(-5deg);
+  background-color: rgb(13, 255, 0);
+  transform: rotate(-3deg);
 }
 #h1:active{
   cursor: pointer;
-  background-color: rgb(0, 51, 255);
-  transform: rotate(-5deg);
-  color: white;
+  background-color: rgb(0, 255, 255);
+  transform: rotate(-3deg);
+  color: rgb(0, 0, 0);
 }
 #p {
   text-align: center;
@@ -32,8 +32,8 @@ body {
   font-size: larger;
 }
 #p:hover {
-  transform: rotate(-10deg);
-  cursor: pointer;
+  transform: rotate(-1deg);
+  cursor: not-allowed;
   background-color: rgb(17, 255, 0);
   font-weight: 900;
 }

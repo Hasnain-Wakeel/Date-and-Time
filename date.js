@@ -1,11 +1,8 @@
 // ----------------------------  How to Generate Date and Time :  ----------------------------
 
-
 // ----------------------------  Date() :  ----------------------------
 
-
 // -------------  Date() is an Object :  ------------
-
 
 // let date = Date();
 // console.log(date);
@@ -15,7 +12,6 @@
 // ------ When you call 'Date()' like a normal function, ------
 
 // it returns a 'string', not a Date 'object'.
-
 
 // ----------------------------  new Date() :  ----------------------------
 
@@ -29,11 +25,9 @@
 
 // ---------  The new keyword tells JavaScript that make this (Date String) a 'Date object'. ---------
 
-
 // ----------------------------------------------------------------------------------
 // ----------------  Difference between 'Date()' and 'new Date()' :  ----------------
 // ----------------------------------------------------------------------------------
-
 
 // 'Date()' just tells you the time as text,
 // while 'new Date()' gives you the time as a tool you can work with.
@@ -51,7 +45,6 @@
 
 // console.log(typeof Date());              // "string"
 // console.log(typeof new Date());          // "object"
-
 
 // --------------------------------------------------------------------------------------------
 
@@ -80,12 +73,12 @@
 // 2. Through new Date() : -----------
 
 // let date = new Date();
-// let day = date.slice(0, 3);          // Throws an ERROR : "TypeError: date.slice is not a function". 
+// let day = date.slice(0, 3);          // Throws an ERROR : "TypeError: date.slice is not a function".
 // //                                               This is an Object, NOT a String !!!
 // console.log(day);                    // Bcz 'slice() method' is only for Strings, not for Objects.
 
 // -----------  // This will throw an error that : "date.slice" is not a function.
-// -----------  // This means that the method of slice is just for the Strings, 
+// -----------  // This means that the method of slice is just for the Strings,
 // -----------          it's not for Objects (and here date is an object).
 
 // ------- "Fixing This Error" : --------
@@ -96,7 +89,6 @@
 // let dateInString = date.toString()            // We converted our object to string.
 // let todayDay = dateInString.slice(0, 3);      // Now using '.slice' method (method of string).
 // console.log(todayDay);                        // Prints Current Day.
-
 
 // ---------- Extracting "Day", "Month" and "Date" from this Date Object : -----------
 
@@ -120,9 +112,7 @@
 // let year = date.getFullYear();
 // console.log(`Year : ${year}`);              // Prints Current Year
 
-
 // ----------------- Years from 1900 to now : ------------------
-
 
 // let date = new Date();
 // let year = date.getYear();
@@ -130,17 +120,16 @@
 
 // // In other words, getYear() thinks the year 1900 is "year zero."
 
-
 // ----------- More Pre-defined Methods : ----------
 
 // let date = new Date();
 
-// console.log("Milliseconds from 1970 --> ", date.getTime());                  // Time in Milli-Seconds from 1970. 
+// console.log("Milliseconds from 1970 --> ", date.getTime());                  // Time in Milli-Seconds from 1970.
 // console.log(date.getUTCFullYear());             // Prints Current Year.
 // console.log(date.getUTCMonth());                // Index of Current Month.
 // console.log(date.getUTCDate());                 // Today Date.
 // console.log(date.getUTCDay());                  // Today Day Index.
-// console.log(date.getUTCHours());                // Universal Co-ordinated Time --> Greenwich (London) Current Time 
+// console.log(date.getUTCHours());                // Universal Co-ordinated Time --> Greenwich (London) Current Time
 // console.log(date.getUTCMinutes());              // Time in Minutes.
 // console.log(date.getUTCSeconds());              // Time in Seconds.
 // console.log("UTC (Current Time) Milliseconds --> " , date.getMilliseconds());                   // Time in Milli-Seconds.
@@ -165,7 +154,6 @@
 // Here, this method is returning a number (index), because the Days are pre-defined for this method :
 // like : Sunday = 0, Monday = 1, Tuesday = 2, Wednesday = 3, Thursday = 4, Friday = 5, Saturday = 6.
 
-
 // -----------------------  Most Reliable, Efficient and Accurate Method(s) : -------------------------------
 
 // --------- This is best the approach because we are using the Pre-defined Javascript Arrangements of the days of the Week. ---------
@@ -186,13 +174,10 @@
 // let Days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 // console.log(Days[new Date().getDay()]);
 
-
 // ------------------------------------------------------------------
 
-
-// ----- Here, we are NOT using the pre-defined Javascript arrangements of the days, 
+// ----- Here, we are NOT using the pre-defined Javascript arrangements of the days,
 //                      although we Declared our own Array. ------
-
 
 // ---------  2(a): LongHand Method :  ------------
 
@@ -200,7 +185,7 @@
 
 // let dayIndex = new Date().getDay() - 1;
 
-// if (dayIndex === -1) {  // For Sunday : if the value of the day is 0 (Sunday), it subtracts '1' from '0' [0 - 1] = [-1], 
+// if (dayIndex === -1) {  // For Sunday : if the value of the day is 0 (Sunday), it subtracts '1' from '0' [0 - 1] = [-1],
 // //                                             which returns "Undefined". So we added this condition.
 //   dayIndex = 6;         // wrap around to Sunday
 // }
@@ -208,21 +193,28 @@
 // let todayDay = Days[dayIndex];
 // console.log(todayDay);
 
-
 // -----------------------------------
 
 // 2(a): ShortHand Method (Alternate Method) :
 
-// const Days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const Days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 // let todayDay = Days[(new Date().getDay() + 6) % 7];
 // console.log(todayDay);
 
-// Example : 
+// Example :
 
-//          Index[0] + 6 => "6"  , 6 % 7 => "6" , Days[6] --> Sunday
-//          Index[1] + 6 => "7"  , 7 % 7 => "0" , Days[0] --> Monday
-//          Index[2] + 6 => "8"  , 8 % 7 => "1" , Days[1] --> Tuesday
-//          Index[3] + 6 => "9"  , 9 % 7 => "2" , Days[2] --> Wednesday
+//          Index[0] + 6 => "6"  , 6 % 7 =>  "6" , Days[6] --> Sunday
+//          Index[1] + 6 => "7"  , 7 % 7 =>  "0" , Days[0] --> Monday
+//          Index[2] + 6 => "8"  , 8 % 7 =>  "1" , Days[1] --> Tuesday
+//          Index[3] + 6 => "9"  , 9 % 7 =>  "2" , Days[2] --> Wednesday
 //          Index[4] + 6 => "10" , 10 % 7 => "3" , Days[3] --> Thursday
 //          Index[5] + 6 => "11" , 11 % 7 => "4" , Days[4] --> Friday
 //          Index[6] + 6 => "12" , 12 % 7 => "5" , Days[5] --> Saturday
@@ -239,11 +231,9 @@
 //      |    5 (Friday)           |      11       |       4       |     Days[4]        |     Friday       |
 //      |    6 (Saturday)         |      12       |       5       |     Days[5]        |     Saturday     |
 
-
-
 // You can check the shifted index by yourself :
 
-// console.log("getDay():", new Date().getDay());
+// console.log("Today Day Is (Index):", new Date().getDay());
 // console.log("Shifted Index:", (new Date().getDay() + 6) % 7);
 // console.log("Day Name:", Days[(new Date().getDay() + 6) % 7]);
 
@@ -257,7 +247,7 @@
 
 // ----------------------------------------------------
 
-// ----- Also, we are not using the pre-defined Javascript arrangements of the days here, 
+// ----- Also, we are not using the pre-defined Javascript arrangements of the days here,
 //                      instead we Declared our own Array. ------
 // "OR"
 // -------------- If we want to show the Day name but according to our Declared Array : -------------
@@ -279,7 +269,7 @@
 
 // if (new Date().getDay() === 0) {
 //   console.log(Days[6]);     // Sunday
-// } 
+// }
 // else {
 //   console.log(Days[new Date().getDay() - 1]);
 // }
@@ -358,7 +348,6 @@
 
 // console.log(`Current Time of Pakistan is: ${hours}:${minutes}:${seconds} ${meridiem}`);
 
-
 // ------------------------------- Showing 12-hour time format : -------------------------------
 
 // let date = new Date()
@@ -399,20 +388,18 @@
 
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
 
-
 // -----------------  Get Months of the Year : -------------------
 
 // let today = new Date()
 // let month = today.getMonth()
 // console.log(month)               // Prints Indexes, same as: '.getDay()' :
 
-
 // ---------------------------------- "Printing Current Month Name" : ----------------------------------
 
 // let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
 // let monthIndex = today.getMonth();
-// console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);         // Adding + 1 bcz monthIndex starts from 0. 
+// console.log(`${monthIndex + 1} --> ${Months[monthIndex]}`);         // Adding + 1 bcz monthIndex starts from 0.
 
 // ----------------- Showing Month Number Also : ----------------
 
@@ -430,53 +417,60 @@
 // const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // let today = new Date();
 // let monthIndex = today.getMonth();          // 1-based index
-
 // if (monthIndex >= 12) {
 //   // Agar December se aage chala jaaye toh :
 //   monthIndex = 11;          // December he dikha do
 // }
-
 // console.log(`${monthIndex} --> ${Months[monthIndex]}`);
 
 // --------------------- Mapping December Also (Maps December to January) : ----------------------
+// const Months = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
 
-// const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// let userInput = Number(prompt("Enter a month number :"));
 
-// let today = new Date();
-// let monthIndex = today.getMonth() + 1;
+// if (!isNaN(userInput) && userInput > 0) {
 
-// if (monthIndex === 12) {
-//   monthIndex = 0;
+//   let monthIndex = (userInput - 1) % 12;
+
+//   console.log(`1. Inputted Number: ${userInput}`);
+//   console.log(`2. Month Index: ${monthIndex}`);
+//   console.log(`3. Month: ${Months[monthIndex]}`);
 // }
-// else{
-//   monthIndex = today.getMonth(); 
+// else {
+//   console.log("Please enter a valid positive number");
 // }
-
-// console.log(`Index of ${Months[monthIndex]} is ${monthIndex}`);
-// console.log(`${monthIndex} --> ${Months[monthIndex]}`);
 
 // ------------------------------
 
-// let userInput = Number(prompt("Enter a Number :"));
-
 // const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
+// let userInput = Number(prompt("Enter a Number between 1 to 12 :"));
 // let today = new Date();
-
 // let monthIndex = today.getMonth();
 
-// if(monthIndex >= 13){
-//   monthIndex = 12;
+// if (userInput != " " && userInput != null &&  userInput != undefined && userInput >= 1 && userInput <= 12) {
+//     console.log(Months[userInput - 1]);
 // }
-// else{
-//   monthIndex = today.getMonth();
+// else {
+//     console.log("Invalid Input! Enter number between 1 to 12 for Checking Months of the Year:");
 // }
 
 // console.log(`Number of ${Months[monthIndex]} is ${monthIndex + 1}.`);
 // console.log(`    ${monthIndex + 1} --> ${Months[monthIndex]}`);
 
-
-// ------------------ Simple Way ---------------
+// ------------------ Simple Way ------------------
 
 // let userInput = Number(prompt("Us Month ka number likho jis ko aap dekhna chahtay ho :"));
 
@@ -484,7 +478,7 @@
 
 // if (userInput >= 1 && userInput <= 12) {
 //   console.log(Months[userInput - 1]);
-// } 
+// }
 // else {
 //   console.log("Invalid Input!, Please Try Again.");
 // }
@@ -492,7 +486,6 @@
 // -------------------------------------------------------------------------------------------------------------
 
 // -------------------------------  Showing Time of Different Time Zones : --------------------------------------
-
 
 // function showWorldTime() {
 
@@ -593,17 +586,15 @@
 
 // console.log(currentDate - customDate);
 
-
 // --------------------------  Calculating Remaining Time In A Future Date : ------------------------
-
 
 // let Days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 // let today = new Date();
 // let customDate = new Date("2030-01-11");
-let customDate = new Date("Jan 11 2030");
+// let customDate = new Date("Jan 11 2030");
 // let customDateDay = Days[customDate.getDay()];
-console.log(customDate.getTime());
+// console.log(customDate.getTime());
 
 // let milliSecondsOfToday = today.getTime();
 // let milliSecondsOfCustomDate = customDate.getTime();
@@ -613,10 +604,10 @@ console.log(customDate.getTime());
 // let milliSecondsDifference = milliSecondsOfCustomDate - milliSecondsOfToday;
 
 // let daysLeft = (milliSecondsDifference / (1000 * 60 * 60 * 24));
-// let hoursLeft = (milliSecondsDifference / (1000 * 60 * 60));     
-// let minutesLeft = (milliSecondsDifference / (1000 * 60));     
-// let secondsLeft = (milliSecondsDifference / (1000));     
-// let milliSecondsLeft = (milliSecondsDifference);     
+// let hoursLeft = (milliSecondsDifference / (1000 * 60 * 60));
+// let minutesLeft = (milliSecondsDifference / (1000 * 60));
+// let secondsLeft = (milliSecondsDifference / (1000));
+// let milliSecondsLeft = (milliSecondsDifference);
 
 // console.log(daysLeft);                   // Days Left in Custom Date --> [12 Jan 2030]
 // console.log(hoursLeft);                  // Hours Left in Custom Date --> [12 Jan 2030]
@@ -624,14 +615,13 @@ console.log(customDate.getTime());
 // console.log(secondsLeft);                // minutes Left in Custom Date --> [12 Jan 2030]
 // console.log(milliSecondsLeft);           // minutes Left in Custom Date --> [12 Jan 2030]
 
-
 // --------------------------  Calculating Time Left In A Future Date : ------------------------
 
 // let today = new Date();
 // let todayTime = today.getTime();
 // // console.log(todayTime);                 // Current Time in MilliSeconds.
 
-// -------- We also can specify a specific time of a future date : -------- 
+// -------- We also can specify a specific time of a future date : --------
 
 // // let date = new Date("11 Jan 2021 15:30:25").getTime();
 // // console.log(date);
@@ -654,7 +644,7 @@ console.log(customDate.getTime());
 // console.log(`Total Weeks Left: ${weeksLeft}`);
 
 // let daysLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60 * 24)));
-// console.log(`Total Days Left: ${daysLeft}`);        
+// console.log(`Total Days Left: ${daysLeft}`);
 
 // let hoursLeft = Math.floor((differenceInMilliseconds / (1000 * 60 * 60)));
 // console.log(`Total Hours Left: ${hoursLeft}`);
@@ -670,5 +660,42 @@ console.log(customDate.getTime());
 // let customDate = new Date("Jan 12 2030");
 // let time = customDate.getTime()
 // console.log(time);
+
+// ---------------------------------------------------------------------------------------------
+// ---------------- Now , we are going to calculate the time left in a future date : --------------
+// ----------------------------------- Setting Up A Future Date --------------------------------
+
+
+// let futureDate = new Date("25 Nov 2031");
+// let futureDate = new Date("25 Nov 2031 12:30:21");       // We can also specify a Time of a Future Date :
+// console.log(futureDate);
+// console.log(futureDate.getTime());      // This returns the Milliseconds of the Future Date from the 01-Jan-1970.
+// console.log(futureDate.getDay());       // This returns the Day of the Future Date.
+
+// let futureDate = new Date("31 Dec 2031");
+// let customDate = new Date();
+// // let timeLeft = futureDate.getTime() - customDate.getTime();
+// // console.log(timeLeft);
+// // let timeLeft = futureDate.getFullYear() - customDate.getFullYear();
+// let daysLeft = (futureDate.getTime() - customDate.getTime()) / 1000 * 365 ;
+// console.log(`Days Left in 2031 => ${daysLeft}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
