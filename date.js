@@ -197,15 +197,16 @@
 
 // 2(a): ShortHand Method (Alternate Method) :
 
-const Days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+// const Days = [
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+//   "Sunday",
+// ];
+
 // let todayDay = Days[(new Date().getDay() + 6) % 7];
 // console.log(todayDay);
 
@@ -371,6 +372,11 @@ const Days = [
 //   hours = 12;
 // }
 
+// console.log(`${hours} : ${minutes} : ${seconds} ${meridiem}`)
+
+// console.log("Answer of 6 % 12 is : " + 6 % 12);
+
+
 // // // -----------------  .padStart() Method : -----------------
 
 // // // .padStart() Method adds leading zeros to the beginning of the string.
@@ -382,9 +388,9 @@ const Days = [
 
 // // -------------- Not Using .toString() Method : --------------
 
-// // hours = `${hours}`.padStart(2, "0");
-// // minutes = `${minutes}`.padStart(2, "0");
-// // seconds = `${seconds}`.padStart(2, "0");
+// hours = `${hours}`.padStart(2, "0");
+// minutes = `${minutes}`.padStart(2, "0");
+// seconds = `${seconds}`.padStart(2, "0");
 
 // console.log(`Current Time of Pakistan is : ${hours}:${minutes}:${seconds} ${meridiem}`);
 
@@ -628,12 +634,16 @@ const Days = [
 
 // ------------------------------------------------------------------------
 
-// let customDate = new Date("12 Jan 2030");
+// let today = new Date();
+// let todayTime = today.getTime();
+// console.log(`Today Time: ${todayTime}`);
+
+// let customDate = new Date("12 Nov 2027");
 // let customDayTime = customDate.getTime();
-// // console.log(customDayTime);             // Custom Day Time in MilliSeconds.
+// console.log(`CustomDayTime: ${customDayTime}`);                   // Custom Day Time in MilliSeconds.
 
 // let differenceInMilliseconds = customDayTime - todayTime
-// // console.log(differenceInMilliseconds);
+// console.log(`Difference in Both Times: ${differenceInMilliseconds}`);
 
 // let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 30));
 // // let monthsLeft = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24) / 30);
@@ -679,23 +689,4 @@ const Days = [
 // // let timeLeft = futureDate.getFullYear() - customDate.getFullYear();
 // let daysLeft = (futureDate.getTime() - customDate.getTime()) / 1000 * 365 ;
 // console.log(`Days Left in 2031 => ${daysLeft}`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
